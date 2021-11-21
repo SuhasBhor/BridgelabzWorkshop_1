@@ -65,8 +65,8 @@ public class Gambler {
 				Win=0;
 				Loss=0;
 			}
-			 System.out.println("The Luckiest Day is :"+luckyDay);
-			 System.out.println("The Unluckiest Day is: "+unluckyDay);
+			 System.out.println("The Luckiest Day is "+luckyDay+ " With "+winMax+ " Turn");
+			 System.out.println("The Unluckiest Day is "+unluckyDay+ " With "+lossMax+" Turn");
 			 System.out.println("Total Win Days: "+WinDays);
 			 System.out.println("Total Loss Days: "+LossDays);
 			 System.out.println("Total Win Price Won In Month Is " +Winning + "\n");
