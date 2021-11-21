@@ -11,20 +11,33 @@ public class Gambler {
 		System.out.println("Beat Price: "+Bet_Every_Game);
 		
 		int Stack_Upper = 150;  //upper bound of Stack
-		int Stack_Lower =50;    //lower bound of Stack so if Amount reach to this then loop will stop
+		int Stack_Lower = 50;    //lower bound of Stack so if Amount reach to this then loop will stop
+		int Winning = 0;
 		
-		//checking till condition is true 
-		while(Every_Day_Stack > Stack_Lower && Every_Day_Stack < Stack_Upper) {   
-		Random random = new Random();  //taking random value between 0 and 1
-		int bet = random.nextInt(2);
-		//checking win or loss condition
-		if(bet == 1) {
-			System.out.println("Bet Win");
-			System.out.println("Final Amount: "+(Every_Day_Stack += Bet_Every_Game)); //increment amount by 1
-		}else {
-			System.out.println("Bet Loss");
-			System.out.println("Final Amount: "+(Every_Day_Stack -= Bet_Every_Game)); //decrement amount by 1
-		}
+		for(int days = 1; days <= 20; days++) {
+			Every_Day_Stack=100;
+			while(Every_Day_Stack > Stack_Lower && Every_Day_Stack < Stack_Upper) {   //checking till condition is true 
+				Random random = new Random();  //taking random value between 0 and 1
+				int bet = random.nextInt(2);
+				//checking win or loss condition
+				
+				switch(bet) {
+				case 1:
+					Every_Day_Stack += Bet_Every_Game; //increment amount by 1
+					break;
+				default:
+					Every_Day_Stack -= Bet_Every_Game; //decrement amount by 1
+					break;
+				}
+			}
+			if(Every_Day_Stack == Stack_Upper) {
+				System.out.println("Player Has Won Gambler For Day "+days);
+				Winning += 50;
+			}else {
+				System.out.println("Player Has Loss Gambler For Day "+days);
+				Winning -= 50;
+			}
+			System.out.println("Total Win Price: "+Winning + "\n");
 		}
 	}
 }
